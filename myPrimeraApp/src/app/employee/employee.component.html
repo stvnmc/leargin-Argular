@@ -3,7 +3,32 @@
 <p>Years of employee:{{ years < 18 ? "Menor de edad" : "Mayor de edad" }}</p>
 <p>Empresa of employee:{{ company.value }}</p>
 
-Introduce la empresa:<input type="text" #company (keyup)="0" />
+Introduce la empresa:<input
+  type="text"
+  #company
+  (keyup)="(0)"
+  [disabled]="habilitInputText"
+/>
 
 <br />
 <br />
+{{ textOfRegistered }}
+<br />
+Registered:
+<input
+  type="radio"
+  name="nameR"
+  value="yes"
+  id="registered"
+  [checked]="registeredUser"
+  (click)="setUserRegistration($event)"
+/>
+No registered:
+<input
+  type="radio"
+  name="nameR"
+  value="no"
+  (click)="setUserRegistration($event)"
+/>
+
+<!-- {{ userRegistration() }} -->

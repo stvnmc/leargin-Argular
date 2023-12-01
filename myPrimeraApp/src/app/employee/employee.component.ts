@@ -25,6 +25,24 @@ export class EmployeeComponent implements OnInit {
   // }
 
   callNameCompany(value: String) {}
+
+  habilitInputText = false;
+
+  registeredUser = false;
+  textOfRegistered = 'No one registered';
+
+  userRegistration() {
+    this.registeredUser = true;
+  }
+  setUserRegistration(event: Event) {
+    console.log((<HTMLInputElement>event.target).value)
+    if ((<HTMLInputElement>event.target).value === 'yes') {
+      this.textOfRegistered = 'The user just registered';
+    } else {
+      this.textOfRegistered = 'No one registered';
+    }
+  }
+
   constructor() {}
   ngOnInit(): void {}
 }
