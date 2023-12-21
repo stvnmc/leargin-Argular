@@ -18,7 +18,12 @@ export class EmployeeComponent implements OnInit {
   name = 'Juan';
   lastName = 'Sias';
   years = 19;
-  company = 'adidas';
+
+  company = 'amazon';
+
+  chanceCompany(event: Event) {
+    this.company = (<HTMLInputElement>event.target).value;
+  }
 
   // getName() {
   //   return this.name;
@@ -35,7 +40,7 @@ export class EmployeeComponent implements OnInit {
     this.registeredUser = true;
   }
   setUserRegistration(event: Event) {
-    console.log((<HTMLInputElement>event.target).value)
+    console.log((<HTMLInputElement>event.target).value);
     if ((<HTMLInputElement>event.target).value === 'yes') {
       this.textOfRegistered = 'The user just registered';
     } else {

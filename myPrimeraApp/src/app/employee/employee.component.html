@@ -1,14 +1,16 @@
 <p>Name of employee:{{ name }}</p>
 <p>Last name of employee:{{ lastName }}</p>
 <p>Years of employee:{{ years < 18 ? "Menor de edad" : "Mayor de edad" }}</p>
-<p>Empresa of employee:{{ company.value }}</p>
+<p>Empresa of employee:{{ company }}</p>
 
-Introduce la empresa:<input
+Introduce the company: <input type="text" [(ngModel)]="company" />
+
+<!-- Introduce la empresa:<input
   type="text"
   #company
   (keyup)="(0)"
   [disabled]="habilitInputText"
-/>
+/> -->
 
 <br />
 <br />
