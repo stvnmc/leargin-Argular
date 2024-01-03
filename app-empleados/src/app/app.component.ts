@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Empleado } from './empleados.model';
+import { ServicioEmpleadosService } from './servicio-empleados.service';
+import { EmpleadosService } from './empleados.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Listado de Empleados';
 
-  empleados: Empleado[] = [
-    new Empleado('Juan', 'Diaz', 'Presidente', 7500),
-    new Empleado('Ana', 'Martin', 'Directora', 5400),
-    new Empleado('Maria', 'Fdez', 'Jefa seccion', 3500),
-    new Empleado('Laura', 'Lopez', 'Administrativo', 2500),
-  ];
+  constructor(
+    private miServicio: ServicioEmpleadosService,
+    private empleadosService: EmpleadosService
+  ) {}
+
+  ngOnInit(): void {
+    this.empleados = this.empleadosService.empleados;
+  }
+
+  empleados: Empleado[] = [];
 
   agregarEmpleado() {
     let miEmpleado = new Empleado(
@@ -23,11 +29,25 @@ export class AppComponent {
       this.cuadroCargo,
       this.cuadroSalario
     );
-    this.empleados.push(miEmpleado);
+    // this.miServicio.muestraMensaje(
+    //   'Persona que se va agragar:' +
+    //     '\n' +
+    //     miEmpleado.nombre +
+    //     '\n' +
+    //     'Salarios: ' +
+    //     miEmpleado.salario
+    // );
+    this.empleadosService.agragarEmpleadoServicio(miEmpleado);
   }
 
   cuadroNombre: string = '';
   cuadroApellido: string = '';
   cuadroCargo: string = '';
   cuadroSalario: number = 0;
+
+  arrayCaracteristicas = [''];
+
+  agregarCaracteristica(nuevaCaracteristica: string) {
+    this.arrayCaracteristicas.push(nuevaCaracteristica);
+  }
 }
