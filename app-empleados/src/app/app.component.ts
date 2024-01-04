@@ -44,10 +44,4 @@ export class AppComponent implements OnInit {
   cuadroApellido: string = '';
   cuadroCargo: string = '';
   cuadroSalario: number = 0;
-
-  arrayCaracteristicas = [''];
-
-  agregarCaracteristica(nuevaCaracteristica: string) {
-    this.arrayCaracteristicas.push(nuevaCaracteristica);
-  }
 }
