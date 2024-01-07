@@ -7,9 +7,7 @@ import { Empleado } from '../empleados.model';
   styleUrls: ['./empleado-hijo-c.component.css'],
 })
 export class EmpleadoHijoCComponent implements OnInit {
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 
   @Input() empleadoDeLista: Empleado;
   @Input() indice: number;
