@@ -18,6 +18,7 @@ export class ActualizaComponentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
     this.empleados = this.empleadosService.empleados;
 
     this.indice = this.route.snapshot.params['id'];
@@ -38,17 +39,25 @@ export class ActualizaComponentComponent implements OnInit {
 
   empleados: Empleado[] = [];
 
+  accion: number;
+
   actualizarEmpleado() {
-    let miEmpleado = new Empleado(
-      this.cuadroNombre,
-      this.cuadroApellido,
-      this.cuadroCargo,
-      this.cuadroSalario
-    );
+    if (this.accion === 1) {
+      let miEmpleado = new Empleado(
+        this.cuadroNombre,
+        this.cuadroApellido,
+        this.cuadroCargo,
+        this.cuadroSalario
+      );
 
-    this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
+      this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
 
-    this.router.navigate(['']);
+      this.router.navigate(['']);
+    } else {
+      this.empleadosService.eliminarEmpleado(this.indice);
+
+      this.router.navigate(['']);
+    }
   }
 
   cuadroNombre: string = '';

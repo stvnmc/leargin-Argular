@@ -13,6 +13,7 @@ import { QuienSoyComponent } from './quien-soy/quien-soy.component';
 import { ContactoCComponent } from './contacto-c/contacto-c.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponentComponent } from './error-personalizado-component/error-personalizado-component.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponentComponent },
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'quien', component: QuienSoyComponent },
   { path: 'contacto', component: ContactoCComponent },
   { path: 'actualiza/:id', component: ActualizaComponentComponent },
+  { path: '**', component:  ErrorPersonalizadoComponentComponent},
 ];
 
 @NgModule({
