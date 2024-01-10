@@ -1,17 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Empleado } from './empleados.model';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
+import { DataServices } from './data.services';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class EmpleadosService {
-  constructor(private servicioVentanaEmergente: ServicioEmpleadosService) {}
+  constructor(
+    private servicioVentanaEmergente: ServicioEmpleadosService,
+    private dataService: DataServices
+  ) {}
 
-  empleados: Empleado[] = [
-    new Empleado('Juan', 'Diaz', 'Presidente', 7500),
-    new Empleado('Ana', 'Martin', 'Directora', 5400),
-    new Empleado('Maria', 'Fdez', 'Jefa seccion', 3500),
-    new Empleado('Laura', 'Lopez', 'Administrativo', 2500),
-  ];
+  obtenerEmpleados(): Observable<Empleado[]> {
+    return this.dataService.cargarEmpleados();
+  }
+
+  empleados: Empleado[] = [];
+
+  // empleados: Empleado[] = [
+  //   new Empleado('Juan', 'Diaz', 'Presidente', 7500),
+  //   new Empleado('Ana', 'Martin', 'Directora', 5400),
+  //   new Empleado('Maria', 'Fdez', 'Jefa seccion', 3500),
+  //   new Empleado('Laura', 'Lopez', 'Administrativo', 2500),
+  // ];
 
   agragarEmpleadoServicio(empleado: Empleado) {
     this.servicioVentanaEmergente.muestraMensaje(
@@ -24,6 +35,8 @@ export class EmpleadosService {
     );
 
     this.empleados.push(empleado);
+
+    this.dataService.guardarEmpleados(this.empleados);
   }
   encontrarEmpleado(indice: number) {
     let empleado: Empleado = this.empleados[indice];
