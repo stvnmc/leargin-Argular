@@ -17,13 +17,6 @@ export class EmpleadosService {
 
   empleados: Empleado[] = [];
 
-  // empleados: Empleado[] = [
-  //   new Empleado('Juan', 'Diaz', 'Presidente', 7500),
-  //   new Empleado('Ana', 'Martin', 'Directora', 5400),
-  //   new Empleado('Maria', 'Fdez', 'Jefa seccion', 3500),
-  //   new Empleado('Laura', 'Lopez', 'Administrativo', 2500),
-  // ];
-
   agragarEmpleadoServicio(empleado: Empleado) {
     this.servicioVentanaEmergente.muestraMensaje(
       'Persona que se va agragar' +
@@ -42,6 +35,7 @@ export class EmpleadosService {
     let empleado: Empleado = this.empleados[indice];
     return empleado;
   }
+
   actualizarEmpleado(indice: number, empleado: Empleado) {
     let empleadoModificado = this.empleados[indice];
 
@@ -49,9 +43,15 @@ export class EmpleadosService {
     empleadoModificado.apellido = empleado.apellido;
     empleadoModificado.cargo = empleado.cargo;
     empleadoModificado.salario = empleado.salario;
+
+    this.dataService.actulizarEmpleado(indice, empleado);
   }
 
   eliminarEmpleado(indice: number) {
     this.empleados.splice(indice, 1);
+
+    this.dataService.eliminarEmpleado(indice);
+
+    this.dataService.guardarEmpleados(this.empleados);
   }
 }
