@@ -12,6 +12,12 @@
     <li>
       <a href="/contacto">Contacto</a>
     </li>
+    <li><a routerLink="/login" *ngIf="!estaLogueado()"> Login </a></li>
+    <li>
+      <a routerLink="/logout" *ngIf="estaLogueado()" (click)="logout()">
+        Logout
+      </a>
+    </li>
   </ul>
 </nav>
 <router-outlet></router-outlet>

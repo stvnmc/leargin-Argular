@@ -17,9 +17,8 @@ export class HomeComponentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.empleados = this.empleadosService.empleados;
     this.empleadosService.obtenerEmpleados().subscribe((misEmpleados) => {
-      console.log(misEmpleados);
+      this.empleados = misEmpleados;
     });
   }
 
@@ -32,14 +31,7 @@ export class HomeComponentComponent implements OnInit {
       this.cuadroCargo,
       this.cuadroSalario
     );
-    // this.miServicio.muestraMensaje(
-    //   'Persona que se va agragar:' +
-    //     '\n' +
-    //     miEmpleado.nombre +
-    //     '\n' +
-    //     'Salarios: ' +
-    //     miEmpleado.salario
-    // );
+
     this.empleadosService.agragarEmpleadoServicio(miEmpleado);
   }
 
