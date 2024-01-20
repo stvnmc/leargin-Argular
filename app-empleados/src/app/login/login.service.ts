@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
+import { CookieService } from 'ngx-cookie-service';
+
 @Injectable()
 export class LoginService {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cookies: CookieService) {}
 
   token: string;
 
@@ -17,17 +19,18 @@ export class LoginService {
           .currentUser?.getIdToken()
           .then((token) => {
             this.token = token;
+            this.cookies.set('token', this.token);
             this.router.navigate(['/']);
           });
       });
   }
 
   getIdToken() {
-    return this.token;
+    return this.cookies.get('token');
   }
 
   estaLogueado() {
-    return this.token;
+    return this.cookies.get('token');
   }
 
   logout() {
@@ -36,7 +39,9 @@ export class LoginService {
       .signOut()
       .then(() => {
         this.token = '';
+        this.cookies.set('token', this.token);
         this.router.navigate(['/']);
+        window.location.reload();
       });
   }
 }

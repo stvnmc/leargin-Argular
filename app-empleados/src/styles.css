@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #43766c;
+  display: flex;
+  height: 10vh;
+  padding: 0 2vw;
+  width: 96vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: inherit
+}
+
+.route-navigate ul {
+  display: flex;
+}
+
+.route-navigate ul li {
+  list-style-type: none;
+  margin-right: 20px;
+}
+
+.register ul {
+  display: flex;
+}
+.register ul li {
+  display: flex;
+  list-style-type: none;
+}

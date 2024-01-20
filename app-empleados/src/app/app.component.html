@@ -1,23 +1,33 @@
-<nav>
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/proyectos">Proyectos</a>
-    </li>
-    <li>
-      <a href="/">Quien soy</a>
-    </li>
-    <li>
-      <a href="/contacto">Contacto</a>
-    </li>
-    <li><a routerLink="/login" *ngIf="!estaLogueado()"> Login </a></li>
-    <li>
-      <a routerLink="/logout" *ngIf="estaLogueado()" (click)="logout()">
-        Logout
-      </a>
-    </li>
-  </ul>
+<nav class="header">
+  <div class="route-navigate">
+    <ul>
+      <li>
+        <a href="/"><h1>Home</h1> </a>
+      </li>
+      <li>
+        <a href="/proyectos">
+          <h1>Proyectos</h1>
+        </a>
+      </li>
+      <li>
+        <a href="/"><h1>Quien soy</h1> </a>
+      </li>
+      <li>
+        <a href="/contacto"><h1>Contacto</h1> </a>
+      </li>
+    </ul>
+  </div>
+  <div class="register">
+    <ul>
+      <li>
+        <a routerLink="/login" *ngIf="!estaLogueado()"> <h1>Login</h1> </a>
+      </li>
+      <li>
+        <a routerLink="/logout" *ngIf="estaLogueado()" (click)="logout()">
+          <h1>Logout</h1>
+        </a>
+      </li>
+    </ul>
+  </div>
 </nav>
 <router-outlet></router-outlet>
