@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+body {
+  background: #f8fae5;
+}
+
 .header {
   background-color: #43766c;
   display: flex;
@@ -13,9 +17,9 @@
   align-items: center;
 }
 
-a{
+a {
   text-decoration: none;
-  color: inherit
+  color: inherit;
 }
 
 .route-navigate ul {
@@ -33,4 +37,54 @@ a{
 .register ul li {
   display: flex;
   list-style-type: none;
+}
+
+/* home */
+
+.home {
+  width: 94vw;
+  height: 86vh;
+  margin: 2vh 2vw;
+}
+
+.list-employes {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
+}
+
+.list-employes form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-employes form div {
+  margin: 0vh 0vw 0vh 2vw;
+  background-color: #76453b;
+  padding: 9px;
+  border-radius: 4px;
+}
+
+.list-employes form div label {
+  font-size: 20px;
+  margin-right: 1vw;
+}
+
+.list-employes form div label input {
+}
+
+.list-employes form div button {
+  width: 90px;
+  height: 29px;
+  border-radius: 5px;
+  border: solid 1px black;
+  background-color: #b19470;
+  margin-left: 5vw;
+}
+
+
+/* emplyes  */
+
+.content{
+  
 }

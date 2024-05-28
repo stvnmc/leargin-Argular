@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "T-dagger",
+    "color": "White",
+    "category": "Keyboard",
+    "price": 100
+  },
+  {
+    "nombre": "Kumara",
+    "color": "Black",
+    "category": "Keyboard",
+    "price": 50
+  }
+]
